@@ -8,14 +8,29 @@
 </p>
 
 ---
-
 ## 🎭 A Visão / The Vision
 
-### (PT-BR)
-O **Ruby Orchestrator** é uma solução de engenharia criada para gerenciar a complexidade de fluxos de trabalho sequenciais. Em sistemas comuns, scripts tendem a se tornar "monolíticos e frágeis", onde uma falha em uma etapa corrompe todo o processo. Este projeto introduz o conceito de **Maestro**: um motor central que não executa o trabalho braçal, mas coordena unidades atômicas de lógica, garantindo que os dados fluam com segurança e que erros externos sejam tratados com inteligência.
+### (PT-BR) O Fim do Script Frágil
+A maioria das automações começa como um script simples e linear. No entanto, à medida que a complexidade cresce, esses scripts se tornam "Castelos de Cartas": se uma chamada de API falha ou um banco de dados oscila, o processo morre pela metade, deixando dados corrompidos e sem logs de rastreabilidade.
 
-### (EN-US)
-**Ruby Orchestrator** is an engineering solution designed to manage the complexity of sequential workflows. In common systems, scripts tend to become "monolithic and fragile," where a failure in one step corrupts the entire process. This project introduces the **Conductor** concept: a central engine that doesn't perform the manual labor itself but coordinates atomic units of logic, ensuring data flows safely and external errors are handled intelligently.
+O **Ruby Orchestrator** propõe uma mudança de paradigma: **Saímos da execução linear para a execução governada.**
+
+
+
+Nesta visão, o "Maestro" não executa as notas; ele governa o tempo e a resiliência. 
+- **Desacoplamento Temporal:** As tarefas não precisam saber quem veio antes ou quem vem depois. Elas apenas cumprem seu contrato com o Contexto.
+- **Governança de Erros:** O Orchestrator transforma erros fatais em eventos tratáveis. Se um "músico" falha, o maestro decide se deve repetir o compasso (Retry) ou encerrar a sinfonia graciosamente (Circuit Break).
+- **Transparência Operacional:** Ao final de cada execução, você não tem apenas um "ok" ou "erro", você tem um relatório completo do estado do Contexto em cada etapa do pipeline.
+
+### (EN-US) The End of the Fragile Script
+Most automations begin as simple, linear scripts. However, as complexity grows, these scripts turn into "House of Cards": if an API call fails or a database flickers, the process dies halfway through, leaving behind corrupted data and no traceability logs.
+
+**Ruby Orchestrator** proposes a paradigm shift: **Moving from linear execution to governed execution.**
+
+In this vision, the "Conductor" doesn't play the notes; it governs timing and resilience.
+- **Temporal Decoupling:** Tasks don't need to know who came before or who follows. They simply fulfill their contract with the Context.
+- **Error Governance:** The Orchestrator transforms fatal errors into manageable events. If a "musician" fails, the conductor decides whether to repeat the measure (Retry) or end the symphony gracefully (Circuit Break).
+- **Operational Transparency:** At the end of every execution, you don't just get an "ok" or "error"; you get a full report of the Context's state at every stage of the pipeline.
 
 ---
 
@@ -45,6 +60,24 @@ O **Ruby Orchestrator** é uma solução de engenharia criada para gerenciar a c
 | **Atomic Tasks** | Garante que cada classe tenha apenas uma razão para mudar (SRP). | Ensures each class has only one reason to change (SRP). |
 
 ---
+## 🛠️ Ferramentas Necessárias / Requirements & Tools
+
+### (PT-BR) Recursos para Desenvolvimento
+* **Ruby 3.2+**: A linguagem base (utilizamos recursos modernos de pattern matching).
+* **Bundler**: Para gerenciamento de dependências.
+* **RSpec**: Framework de testes para garantir a saúde do Maestro.
+* **Pry**: Para depuração em tempo real dentro do pipeline.
+* **Git**: Controle de versão e colaboração.
+
+### (EN-US) Development Tools
+* **Ruby 3.2+**: The core language (leveraging modern pattern matching features).
+* **Bundler**: For dependency management.
+* **RSpec**: Testing framework to ensure the Conductor's health.
+* **Pry**: For real-time debugging inside the pipeline.
+* **Git**: Version control and collaboration.
+  
+---
+
 
 ## 👨‍💻 Por que este projeto existe? / Why this project?
 
@@ -61,6 +94,8 @@ This project is a case study on **Design Maturity**. It demonstrates that the ch
 * **Professional:** It applies patterns used in large-scale systems (like Sidekiq or Trailblazer).
 
 ---
+
+
 
 ## 🤝 Contribuição / Contributing
 
