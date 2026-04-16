@@ -1,84 +1,79 @@
-#  Ruby Orchestrator
+# 💎 Ruby Orchestrator
 
-![Ruby Version](https://img.shields.io/badge/ruby-3.2%2B-red.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![Architecture](https://img.shields.io/badge/arch-Service--Oriented-blue.svg)
-
-> **(PT-BR)** Um maestro de processos resiliente que transforma fluxos de dados complexos em pipelines elegantes e à prova de falhas.
->
-> **(EN-US)** A resilient process conductor that transforms complex data flows into elegant, fail-safe pipelines.
+<p align="center">
+  <img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white" alt="Ruby">
+  <img src="https://img.shields.io/badge/Architecture-Service--Oriented-blue?style=for-the-badge" alt="Architecture">
+  <img src="https://img.shields.io/badge/Pattern-Interactors-orange?style=for-the-badge" alt="Pattern">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
+</p>
 
 ---
 
-## 📑 Índice / Table of Contents
-- [A Visão / The Vision](#-a-visão--the-vision)
-- [Arquitetura / Architecture](#-arquitetura--architecture)
-- [Diferenciais / Key Features](#-diferenciais--key-features)
-- [Instalação / Installation](#-instalação--installation)
-- [Exemplo de Uso / Usage Example](#-exemplo-de-uso--usage-example)
-- [Por que este projeto? / Why this project?](#-por-que-este-projeto--why-this-project)
-
----
-
-## 🎯 A Visão / The Vision
+## 🎭 A Visão / The Vision
 
 ### (PT-BR)
-O **Ruby Orchestrator** não é apenas um script; é uma infraestrutura lógica. Ele foi criado para resolver o problema de scripts lineares que "quebram no meio" sem deixar rastros. Ele atua como um **Maestro**, garantindo que cada tarefa (Task) seja executada na ordem correta, com os dados corretos e com inteligência para tentar novamente em caso de erro.
+O **Ruby Orchestrator** é uma solução de engenharia criada para gerenciar a complexidade de fluxos de trabalho sequenciais. Em sistemas comuns, scripts tendem a se tornar "monolíticos e frágeis", onde uma falha em uma etapa corrompe todo o processo. Este projeto introduz o conceito de **Maestro**: um motor central que não executa o trabalho braçal, mas coordena unidades atômicas de lógica, garantindo que os dados fluam com segurança e que erros externos sejam tratados com inteligência.
 
 ### (EN-US)
-**Ruby Orchestrator** isn't just a script; it's a logical infrastructure. It was built to solve the issue of linear scripts that "break in the middle" without leaving a trace. It acts as a **Conductor**, ensuring each Task is executed in the correct order, with the correct data, and with the intelligence to retry upon failure.
+**Ruby Orchestrator** is an engineering solution designed to manage the complexity of sequential workflows. In common systems, scripts tend to become "monolithic and fragile," where a failure in one step corrupts the entire process. This project introduces the **Conductor** concept: a central engine that doesn't perform the manual labor itself but coordinates atomic units of logic, ensuring data flows safely and external errors are handled intelligently.
 
 ---
 
-## 🏗️ Arquitetura / Architecture
+## 🏗️ Explicação da Arquitetura / Architecture Deep Dive
 
-O projeto utiliza o padrão de **Interactors** e um **Contexto Compartilhado**, eliminando a necessidade de passar inúmeros argumentos entre funções.
+### 1. Interactors & Command Pattern
+**(PT-BR)** Cada tarefa (Task) é um "Interactor" independente. Isso significa que a lógica de "enviar um e-mail" nunca se mistura com a lógica de "validar um CPF". Elas são peças de LEGO que podem ser trocadas ou movidas sem afetar o resto do sistema.
+**(EN-US)** Each Task is an independent "Interactor." This means the logic for "sending an email" never mixes with the logic for "validating a tax ID." They are LEGO pieces that can be swapped or moved without affecting the rest of the system.
 
+### 2. State Management (The Context)
+**(PT-BR)** Utilizamos um objeto de **Contexto Compartilhado**. Em vez de funções passarem múltiplos parâmetros umas para as outras (o que gera acoplamento), elas apenas leem e escrevem em uma "caixa" central que viaja pelo pipeline. Se uma tarefa falha, o contexto preserva o erro para análise posterior.
+**(EN-US)** We use a **Shared Context** object. Instead of functions passing multiple parameters to one another (which creates coupling), they simply read and write to a central "box" that travels through the pipeline. If a task fails, the context preserves the error for later analysis.
 
+### 3. Native Resilience Logic
+**(PT-BR)** Diferente de outras linguagens, o Ruby possui o comando `retry`. Nosso motor utiliza essa capacidade nativa para criar um sistema de "auto-cura". Se uma API externa oscilar, o Orchestrator tenta novamente automaticamente, aumentando a taxa de sucesso do software sem intervenção humana.
+**(EN-US)** Unlike other languages, Ruby features a native `retry` command. Our engine utilizes this built-in capability to create a "self-healing" system. If an external API flickers, the Orchestrator retries automatically, increasing software success rates without human intervention.
 
-## 🛠️ Diferenciais / Key Features
+---
 
-| Feature | Description (PT-BR) | Description (EN-US) |
+## 🛠️ Diferenciais Técnicos / Key Features
+
+| Recurso / Feature | Explicação Detalhada (PT-BR) | Detailed Explanation (EN-US) |
 | :--- | :--- | :--- |
-| **Native Retry** | Tenta executar novamente tarefas que falharam. | Automatically retries failed tasks. |
-| **Fluent DSL** | Interface limpa e legível (Method Chaining). | Clean and readable fluent interface. |
-| **State Management** | Contexto único que viaja por todo o pipeline. | Single context object throughout the pipeline. |
-| **Error Isolation** | Se uma tarefa falha criticamente, o maestro para. | Critical failures trigger a clean circuit break. |
+| **Native Retry** | Implementa recuo exponencial para falhas em serviços externos. | Implements exponential backoff logic for external service failures. |
+| **Fluent DSL** | Permite configurar pipelines complexos em uma única linha legível. | Allows configuring complex pipelines in a single, readable line. |
+| **Circuit Breaking** | Protege o sistema interrompendo a execução se um erro fatal ocorrer. | Protects the system by halting execution if a fatal error occurs. |
+| **Atomic Tasks** | Garante que cada classe tenha apenas uma razão para mudar (SRP). | Ensures each class has only one reason to change (SRP). |
 
 ---
 
-## 👨‍💻 Por que este projeto? / Why this project?
+## 👨‍💻 Por que este projeto existe? / Why this project?
 
-Este projeto foi desenvolvido para demonstrar competência em **Design de Software**, mesmo para quem não tem o Ruby como stack principal. Ele foca em:
+**(PT-BR)**
+Este projeto é um estudo de caso sobre **Maturidade de Design**. Ele demonstra que a escolha da linguagem é secundária à qualidade da arquitetura. O foco aqui foi criar algo:
+* **Extensível:** Você pode adicionar 100 novas tarefas sem tocar no código do motor central.
+* **Testável:** Como as tarefas são isoladas, os testes de unidade tornam-se simples e rápidos.
+* **Profissional:** Aplica padrões utilizados em sistemas de grande escala (como Sidekiq ou Trailblazer).
 
-1.  **Desacoplamento:** As tarefas não sabem da existência umas das outras.
-2.  **Manutenibilidade:** Adicionar um novo passo ao processo leva segundos.
-3.  **Padrões de Elite:** Aplicação rigorosa de SOLID e Clean Code.
+**(EN-US)**
+This project is a case study on **Design Maturity**. It demonstrates that the choice of language is secondary to architectural quality. The focus here was to create something:
+* **Extensible:** You can add 100 new tasks without touching the core engine code.
+* **Testable:** Since tasks are isolated, unit tests become simple and fast.
+* **Professional:** It applies patterns used in large-scale systems (like Sidekiq or Trailblazer).
 
 ---
 
 ## 🤝 Contribuição / Contributing
 
-1. **Fork** o projeto.
-2. Crie uma **Feature Branch** (`git checkout -b feature/AmazingFeature`).
-3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`).
-4. **Push** para a Branch (`git push origin feature/AmazingFeature`).
-5. Abra um **Pull Request**.
+1. **Fork** o projeto / Fork the project.
+2. Crie uma **Branch** para sua funcionalidade / Create your feature branch.
+3. **Commit** suas mudanças com mensagens claras / Commit your changes with clear messages.
+4. Abra um **Pull Request** detalhando as melhorias / Open a detailed Pull Request.
 
 ---
 
 ## 📜 Licença / License
 
-Distributed under the **MIT License**. Veja `LICENSE` para mais informações.
+Distribuído sob a licença **MIT**. Este projeto é livre para uso acadêmico ou comercial.
+Distributed under the **MIT License**. This project is free for academic or commercial use.
 
-
-### 📂 Organização / Organization
-```text
-ruby_orchestrator/
-├── bin/             # CLI entry point
-├── lib/
-│   ├── core/        # The "Brain": Engine & Context handler
-│   ├── tasks/       # The "Musicians": Atomic units of work
-│   └── connectors/  # The "Instruments": API/DB Adapters
-└── spec/            # The "Judge": Unit & Integration tests
+---
