@@ -1,8 +1,9 @@
 #  Ruby Orchestrator
 
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=ruby,docker,postgres,linux,githubactions,vscode" />
+  <img src="https://skillicons.dev/icons?i=ruby,docker" />
 </div>
+
 ---
 ##  A Visão / The Vision
 
