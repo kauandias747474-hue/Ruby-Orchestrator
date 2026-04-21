@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  app:
+    build: .
+    volumes:
+      - .:/app 
+    depends_on:
+      - db 
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: orchestrator_db
+    ports:
+      - "5432:5432"
