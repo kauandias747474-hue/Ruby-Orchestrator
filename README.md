@@ -1,4 +1,4 @@
-# 💎 Ruby Orchestrator
+#  Ruby Orchestrator
 
 <p align="center">
   <img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white" alt="Ruby">
@@ -8,7 +8,7 @@
 </p>
 
 ---
-## 🎭 A Visão / The Vision
+##  A Visão / The Vision
 
 ### (PT-BR) O Fim do Script Frágil
 A maioria das automações começa como um script simples e linear. No entanto, à medida que a complexidade cresce, esses scripts se tornam "Castelos de Cartas": se uma chamada de API falha ou um banco de dados oscila, o processo morre pela metade, deixando dados corrompidos e sem logs de rastreabilidade.
@@ -34,7 +34,7 @@ In this vision, the "Conductor" doesn't play the notes; it governs timing and re
 
 ---
 
-## 🏗️ Explicação da Arquitetura / Architecture Deep Dive
+##  Explicação da Arquitetura / Architecture Deep Dive
 
 ### 1. Interactors & Command Pattern
 **(PT-BR)** Cada tarefa (Task) é um "Interactor" independente. Isso significa que a lógica de "enviar um e-mail" nunca se mistura com a lógica de "validar um CPF". Elas são peças de LEGO que podem ser trocadas ou movidas sem afetar o resto do sistema.
@@ -93,11 +93,51 @@ This project is a case study on **Design Maturity**. It demonstrates that the ch
 * **Testable:** Since tasks are isolated, unit tests become simple and fast.
 * **Professional:** It applies patterns used in large-scale systems (like Sidekiq or Trailblazer).
 
+
+##  Problema vs. Solução / Problem vs. Solution
+
+### (PT-BR) Onde isso se aplica?
+Imagine um fluxo de **Onboarding de Usuário**:
+1. Criar conta no Banco de Dados.
+2. Gerar chave de API em serviço externo.
+3. Enviar e-mail de boas-vindas.
+4. Notificar o time de vendas no Slack.
+
+* **Sem o Orchestrator:** Se o serviço de e-mail cair (passo 3), o usuário é criado, mas o processo "quebra". Você fica com dados inconsistentes e sem saber onde parou.
+* **Com o Orchestrator:** Se o passo 3 falhar, o sistema executa o `retry` automático. Se a falha persistir, ele salva o estado atual (**Context**), permitindo que você reinicie exatamente do ponto de falha sem duplicar os passos 1 e 2.
+
+### (EN-US) Real-world Application
+Imagine a **User Onboarding** flow:
+1. Create account in the Database.
+2. Generate API key in an external service.
+3. Send welcome email.
+4. Notify sales team on Slack.
+
+* **Without the Orchestrator:** If the email service is down (step 3), the user is created but the process "crashes." You end up with inconsistent data and no idea where it failed.
+* **With the Orchestrator:** If step 3 fails, the system triggers an automatic `retry`. If it still fails, it saves the current state (**Context**), allowing you to resume exactly from the point of failure without duplicating steps 1 and 2.
+
+---
+
+##  Explicação da Arquitetura / Architecture Deep Dive
+
+### 1. Interactors & Command Pattern
+**[PT-BR]** Cada tarefa é um "Interactor" independente. São peças de LEGO que podem ser trocadas ou movidas sem afetar o resto do sistema.
+**[EN-US]** Each Task is an independent "Interactor." They are LEGO pieces that can be swapped or moved without affecting the rest of the system.
+
+### 2. State Management (The Context)
+**[PT-BR]** Utilizamos um objeto de **Contexto Compartilhado**. Se uma tarefa falha, o contexto preserva o erro para análise posterior, evitando acoplamento entre funções.
+**[EN-US]** We use a **Shared Context** object. If a task fails, the context preserves the error for later analysis, avoiding coupling between functions.
+
+### 3. Native Resilience Logic
+**[PT-BR]** Utilizamos o comando `retry` nativo do Ruby para criar um sistema de "auto-cura" com recuo exponencial.
+**[EN-US]** We leverage Ruby's native `retry` command to create a "self-healing" system with exponential backoff.
+
 ---
 
 
 
-## 🤝 Contribuição / Contributing
+
+##  Contribuição / Contributing
 
 1. **Fork** o projeto / Fork the project.
 2. Crie uma **Branch** para sua funcionalidade / Create your feature branch.
@@ -106,7 +146,7 @@ This project is a case study on **Design Maturity**. It demonstrates that the ch
 
 ---
 
-## 📜 Licença / License
+##  Licença / License
 
 Distribuído sob a licença **MIT**. Este projeto é livre para uso acadêmico ou comercial.
 Distributed under the **MIT License**. This project is free for academic or commercial use.
