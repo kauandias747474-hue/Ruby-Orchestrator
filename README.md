@@ -1,11 +1,10 @@
 #  Ruby Orchestrator
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white" alt="Ruby">
-  <img src="https://img.shields.io/badge/Architecture-Service--Oriented-blue?style=for-the-badge" alt="Architecture">
-  <img src="https://img.shields.io/badge/Pattern-Interactors-orange?style=for-the-badge" alt="Pattern">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
-</p>
+![Ruby Version](https://img.shields.io/badge/ruby-3.2%2B-red)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Architecture](https://img.shields.io/badge/architecture-Service_Pattern-orange)
+![Docker Support](https://img.shields.io/badge/docker-ready-blue?logo=docker)
 
 ---
 ##  A Visão / The Vision
