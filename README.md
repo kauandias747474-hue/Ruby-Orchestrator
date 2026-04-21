@@ -1,11 +1,12 @@
 #  Ruby Orchestrator
 
-![Ruby Version](https://img.shields.io/badge/ruby-3.2%2B-red)
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Architecture](https://img.shields.io/badge/architecture-Service_Pattern-orange)
-![Docker Support](https://img.shields.io/badge/docker-ready-blue?logo=docker)
-
+<div align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="docker" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rspec/rspec-original.svg" alt="rspec" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="postgres" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
+</div>
 ---
 ##  A Visão / The Vision
 
