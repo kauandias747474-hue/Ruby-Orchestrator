@@ -2,11 +2,12 @@
 
 <div align="center">
 
-![Ruby Version](https://img.shields.io/badge/Ruby-3.2%2B-red?style=flat-square&logo=ruby)
-![Environment](https://img.shields.io/badge/Environment-Docker-blue?style=flat-square&logo=docker)
-![Database](https://img.shields.io/badge/DB-PostgreSQL-blue?style=flat-square&logo=postgresql)
-![OS](https://img.shields.io/badge/OS-Linux%20Debian-lightgrey?style=flat-square&logo=debian)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=flat-square&logo=ruby&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+![RSpec](https://img.shields.io/badge/RSpec-3AA3E3?style=flat-square&logo=rspec&logoColor=white)
+![Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=flat-square)
 
 </div>
 
