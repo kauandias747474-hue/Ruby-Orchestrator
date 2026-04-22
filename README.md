@@ -1,7 +1,13 @@
-#  Ruby Orchestrator
+## Ruby Orchestrator
 
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=ruby,docker,postgres,linux,github,vscode,debian" />
+
+![Ruby Version](https://img.shields.io/badge/Ruby-3.2%2B-red?style=flat-square&logo=ruby)
+![Environment](https://img.shields.io/badge/Environment-Docker-blue?style=flat-square&logo=docker)
+![Database](https://img.shields.io/badge/DB-PostgreSQL-blue?style=flat-square&logo=postgresql)
+![OS](https://img.shields.io/badge/OS-Linux%20Debian-lightgrey?style=flat-square&logo=debian)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+
 </div>
 
 ---
@@ -237,3 +243,33 @@ Distribuído sob a licença **MIT**. Este projeto é livre para uso acadêmico o
 Distributed under the **MIT License**. This project is free for academic or commercial use.
 
 ---
+
+##  Agradecimentos / Acknowledgments
+
+**(PT-BR)**
+Este projeto foi construído com foco em elevar o padrão de automações simples para sistemas robustos. Agradeço a todos que revisaram este código e contribuíram para a sua evolução.
+
+**(EN-US)**
+This project was built with a focus on raising the bar from simple automations to robust systems. Thanks to everyone who reviewed this code and contributed to its evolution.
+
+
+---
+## 🤝 Contato & Autor / Contact & Author
+
+**(PT-BR)**
+Se você tiver dúvidas, sugestões ou quiser apenas conversar sobre arquitetura de software e Ruby, sinta-se à vontade para entrar em contato!
+
+**(EN-US)**
+If you have any questions, suggestions, or just want to chat about software architecture and Ruby, feel free to reach out!
+
+<div align="left">
+  
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/SEU_USER)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:seuemail@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=white)](https://seuporfolioweb.com)
+
+</div>
+
+---
+
+
